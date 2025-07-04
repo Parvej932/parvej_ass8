@@ -74,7 +74,7 @@ class _CounterPageState extends State<CounterPage>
       child: Text(
         value,
         style: const TextStyle(
-          fontSize: 60,
+          fontSize: 100,
           fontWeight: FontWeight.bold,
           color: Colors.white,
         ),
@@ -87,25 +87,32 @@ class _CounterPageState extends State<CounterPage>
     required Color color,
     required VoidCallback onPressed,
   }) {
-    return RawMaterialButton(
-      onPressed: onPressed,
-      shape: const CircleBorder(),
-      fillColor: color,
-      constraints: const BoxConstraints.tightFor(
-        width: 80,
-        height: 80,
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(color: Colors.orangeAccent, width: 5),
       ),
-      elevation: 6.0,
-      child: Text(
-        label,
-        style: const TextStyle(
-          fontSize: 18,
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
+      child: RawMaterialButton(
+        onPressed: onPressed,
+        shape: const CircleBorder(),
+        fillColor: color,
+        constraints: const BoxConstraints.tightFor(
+          width: 100,
+          height: 100,
+        ),
+        elevation: 6.0,
+        child: Text(
+          label,
+          style: const TextStyle(
+            fontSize: 18,
+            color: Colors.yellow,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -134,21 +141,21 @@ class _CounterPageState extends State<CounterPage>
                   children: [
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 32, vertical: 24),
+                          horizontal: 100, vertical: 50),
                       decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.3),
+                        color: Colors.black,
                         borderRadius: BorderRadius.circular(20),
-                        border: Border.all(color: Colors.white30, width: 1),
+                        border: Border.all(color: Colors.orange, width: 10),
                       ),
                       child: Column(
                         children: [
                           const Text(
                             'Counter',
                             style:
-                            TextStyle(fontSize: 20, color: Colors.white70),
+                            TextStyle(fontSize: 50, color: Colors.white70),
                           ),
                           const SizedBox(height: 10),
-                          _buildGradientCounterText('$_counter'),
+                          _buildGradientCounterText('$_counter',),
                         ],
                       ),
                     ),
@@ -157,7 +164,7 @@ class _CounterPageState extends State<CounterPage>
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         _buildCircleTextButton(
-                          label: "-",
+                          label: "Decrease",
                           color: Colors.redAccent,
                           onPressed: _decrease,
                         ),
@@ -167,7 +174,7 @@ class _CounterPageState extends State<CounterPage>
                           onPressed: _reset,
                         ),
                         _buildCircleTextButton(
-                          label: "+",
+                          label: "Increase",
                           color: Colors.green,
                           onPressed: _increase,
                         ),
