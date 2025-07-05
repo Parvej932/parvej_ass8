@@ -8,7 +8,7 @@ class CounterApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Colorful Round Counter',
+      title: 'My Counter',
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       home: const CounterPage(),
