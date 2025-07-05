@@ -31,7 +31,12 @@ class _CounterPageState extends State<CounterPage>
   late Animation<Color?> _color2;
 
   void _increase() => setState(() => _counter++);
-  void _decrease() => setState(() => _counter--);
+  void _decrease() {
+    if (_counter > 0) {
+      setState(() => _counter--);
+    }
+  }
+
   void _reset() => setState(() => _counter = 0);
 
   @override
